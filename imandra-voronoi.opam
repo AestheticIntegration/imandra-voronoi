@@ -13,5 +13,5 @@ build: [
 ]
 depends: [
   "dune" {build}
-  "jupyter_imandra"
+  "jupyter-imandra"
 ]
