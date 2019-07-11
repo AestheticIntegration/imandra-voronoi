@@ -1,0 +1,4 @@
+(library
+ (name imandra_voronoi)
+ (public_name imandra-voronoi)
+ (libraries jupyter-imandra))
