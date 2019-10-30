@@ -8118,16 +8118,16 @@ let body_of div =
     </script>
     |} div
 
-let to_html_str regions =
+let to_html_str ?pp_cs regions =
   let open Jupyter_imandra in
-  let html = Doc_render.regions_to_html ~load:false @@ Decompose_render.terms_doc regions in
+  let html = Doc_render.regions_to_html ~load:false @@ Decompose_render.terms_doc ?pp_cs regions in
   let div = CCFormat.to_string (Tyxml.Html.pp_elt ()) html in
   let body = body_of div in
   let content = html_of body in
   content
 
-let print (fmt : Format.formatter) regions =
-  let content = to_html_str regions in
+let print ?pp_cs (fmt : Format.formatter) regions =
+  let content = to_html_str ?pp_cs regions in
   let fname = Filename.temp_file "voronoi_" ".html" in
   let o = open_out fname in
   Printf.fprintf o "%s" content;
