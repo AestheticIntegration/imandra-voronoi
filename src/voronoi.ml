@@ -8121,13 +8121,9 @@ let body_of div =
     </script>
     |} div
 
-let get_regions d =
-  Modular_decomposition.to_region_list d
-  |> CCList.map (fun (i, _) -> Modular_decomp.get_region d i)
-
 let to_html_str ?pp_cs d =
   let open Jupyter_imandra in
-  let html = Doc_render.regions_to_html ~load:false @@ Decompose_render.terms_doc ?pp_cs (get_regions d) in
+  let html = Doc_render.regions_to_html ~load:false @@ Decompose_render.terms_doc ?pp_cs (Modular_decomp.get_concrete_regions d) in
   let div = CCFormat.to_string (Tyxml.Html.pp_elt ()) html in
   let body = body_of div in
   let content = html_of body in
