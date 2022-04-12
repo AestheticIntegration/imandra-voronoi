@@ -1,6 +1,6 @@
 opam-version: "2.0"
 name: "imandra_voronoi"
-version: "0.0.2"
+version: "1.0.7"
 synopsis: "A voronoi viewer for Imandra regions"
 maintainer: "Nicola Mometto <nicola@imandra.ai>"
 authors: ["Nicola Mometto <nicola@imandra.ai>"]
